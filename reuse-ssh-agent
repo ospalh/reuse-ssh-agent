@@ -1,0 +1,14 @@
+if ( $?prompt ) then
+    setenv SSH_AUTH_SOCK ~/.ssh/agent/socket
+    set agentpid=`/usr/bin/pgrep -U roland ssh-agent | /usr/bin/head -n 1`
+
+    #set agentpid=`tasklist /fi "Username eq roland" | grep ssh-agent | head -n 1 | awk '{print $2}'`
+
+    if ($agentpid) then
+        setenv SSH_AGENT_PID $agentpid
+        echo Using existing agent with pid $agentpid
+    else
+        /bin/rm -f $SSH_AUTH_SOCK
+        eval `/usr/bin/ssh-agent -c -a $SSH_AUTH_SOCK`
+    endif
+endif
