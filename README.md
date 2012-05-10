@@ -8,7 +8,7 @@ Use an existing ssh-agent when there is one or start a new one.
 
 ### Setup:
 * Get the file
-* Change “`&lt;user name&gt;`” to your user name.
+* Change “`<user name>`” to your user name.
 * `mkdir ~/.ssh/agent`
 * `chmod 700 ~/.ssh/agent`
 * Just keep the file and source it when you feel like it
